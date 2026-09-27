@@ -117,3 +117,31 @@ html{scroll-padding-top:90px}a:focus-visible,button:focus-visible{outline:3px so
 /* Responsive */
 @media(max-width:900px){.skills-grid{grid-template-columns:1fr}.projects-grid{grid-template-columns:1fr}.tech-grid{grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}}
 @media(max-width:650px){.tech-grid{grid-template-columns:repeat(2,1fr)}.project-body{padding:20px}}
+
+/* Scroll Progress Bar */
+.scroll-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:var(--red);z-index:10001;transition:width .1s ease;box-shadow:0 0 8px var(--red-glow)}
+
+/* Back to Top Button */
+.back-to-top{position:fixed;bottom:30px;right:30px;width:48px;height:48px;background:var(--red);color:#fff;border:none;border-radius:50%;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 0 20px var(--red-glow);z-index:1000;transition:all .3s;opacity:0;transform:translateY(20px)}
+.back-to-top.visible{display:flex;opacity:1;transform:translateY(0)}
+.back-to-top:hover{background:var(--red-dark);transform:translateY(-2px)}
+.back-to-top svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2}
+
+/* Project Filter Buttons */
+.project-filters{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.filter-btn{background:transparent;color:var(--gray);border:1px solid var(--border);padding:8px 18px;border-radius:20px;font-size:0.75rem;font-weight:600;cursor:pointer;transition:all .2s;text-transform:uppercase;letter-spacing:1px}
+.filter-btn:hover{color:var(--white);border-color:var(--red)}
+.filter-btn.active{background:var(--red);color:#fff;border-color:var(--red)}
+.project-card.hidden{display:none}
+
+/* Certification Section */
+.cert-section{padding:80px 5%;background:var(--bg2);border-top:1px solid var(--border)}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px}
+.cert-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:28px;transition:all .3s;position:relative;overflow:hidden}
+.cert-card:hover{border-color:rgba(224,32,32,0.3);transform:translateY(-4px)}
+.cert-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red)}
+.cert-icon{width:48px;height:48px;margin-bottom:16px;background:rgba(224,32,32,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.cert-icon svg{width:24px;height:24px;stroke:var(--red);fill:none;stroke-width:1.5}
+.cert-name{font-size:1rem;font-weight:700;margin-bottom:8px}
+.cert-issuer{font-size:0.82rem;color:var(--gray);margin-bottom:4px}
+.cert-date{font-size:0.75rem;color:var(--red);font-weight:600}
