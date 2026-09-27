@@ -69,6 +69,9 @@ html{scroll-padding-top:90px}a:focus-visible,button:focus-visible{outline:3px so
 .project-body p{font-size:0.88rem;color:var(--gray);line-height:1.6;margin-bottom:16px}
 .project-tags{display:flex;flex-wrap:wrap;gap:8px}
 .project-tag{font-size:0.7rem;padding:4px 10px;background:rgba(224,32,32,0.1);border:1px solid rgba(224,32,32,0.2);border-radius:12px;color:var(--red);font-weight:600}
+.project-github-link{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:0.82rem;font-weight:600;color:var(--white);text-decoration:none;transition:color .2s}
+.project-github-link svg{width:16px;height:16px;stroke:var(--red);fill:none;stroke-width:1.8}
+.project-github-link:hover{color:var(--red)}
 
 /* Resume Button */
 .resume-btn{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;padding:12px 24px;border-radius:4px;font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;text-decoration:none;transition:all .2s;box-shadow:0 0 20px var(--red-glow);border:none;cursor:pointer}

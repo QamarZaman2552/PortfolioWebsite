@@ -1,4 +1,4 @@
-# Muhammad Shahzaib — Full-Stack .NET Developer Portfolio
+# Qamar Zaman — Full-Stack .NET Developer Portfolio
 
 Open `index.html` to view the site. To publish, upload the contents to any static host, keeping the `assets` folder beside the HTML pages. No package installation or build is required.
 
