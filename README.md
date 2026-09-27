@@ -34,7 +34,7 @@ Update the video sources in `index.html` to match your actual video files.
 
 ## Adding Resume
 
-Place your resume PDF at `assets/resume-muhammad-shahzaib.pdf` or update the download link in the hero section.
+Place your resume PDF at `assets/resume-qamar-zaman.pdf` or update the download link in the hero section.
 
 ## Technologies Used
 
