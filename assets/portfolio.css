@@ -77,16 +77,13 @@ html{scroll-padding-top:90px}a:focus-visible,button:focus-visible{outline:3px so
 .project-gallery img:hover{transform:scale(1.02);opacity:.9}
 .project-gallery img:first-child{grid-column:1/-1;aspect-ratio:16/9}
 .project-gallery img:not(:first-child){aspect-ratio:16/9}
-.lightbox-overlay{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:10000;display:none;align-items:center;justify-content:center;flex-direction:column}
+.lightbox-overlay{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:10000;display:none;align-items:center;justify-content:center}
 .lightbox-overlay.active{display:flex}
-.lightbox-overlay img{max-width:90vw;max-height:80vh;object-fit:contain;border-radius:4px}
-.lightbox-nav{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;gap:16px;align-items:center}
-.lightbox-btn{background:var(--red);color:#fff;border:none;padding:10px 20px;border-radius:4px;font-size:0.85rem;font-weight:700;cursor:pointer;transition:background .2s}
-.lightbox-btn:hover{background:var(--red-dark)}
-.lightbox-counter{color:#fff;font-size:0.9rem;font-weight:600}
-.lightbox-close{position:absolute;top:20px;right:20px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1}
-.lightbox-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(224,32,32,.8);color:#fff;border:none;width:44px;height:44px;border-radius:50%;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
-.lightbox-arrow:hover{background:var(--red)}
+.lightbox-overlay img{max-width:85vw;max-height:85vh;object-fit:contain;border-radius:4px;box-shadow:0 0 40px rgba(0,0,0,.6)}
+.lightbox-close{position:absolute;top:16px;right:20px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;opacity:.7;transition:opacity .2s}
+.lightbox-close:hover{opacity:1}
+.lightbox-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);backdrop-filter:blur(8px);color:#fff;border:none;width:48px;height:48px;border-radius:50%;font-size:1.5rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,opacity .2s;opacity:.5}
+.lightbox-arrow:hover{background:rgba(224,32,32,.5);opacity:1}
 .lightbox-arrow.prev{left:20px}
 .lightbox-arrow.next{right:20px}
 

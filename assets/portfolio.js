@@ -3,7 +3,7 @@
 
   const lightbox = document.createElement('div');
   lightbox.className = 'lightbox-overlay';
-  lightbox.innerHTML = '<button class="lightbox-close" aria-label="Close">&times;</button><button class="lightbox-arrow prev" aria-label="Previous">&#8249;</button><img src="" alt="Gallery image"><button class="lightbox-arrow next" aria-label="Next">&#8250;</button><div class="lightbox-nav"><button class="lightbox-btn prev-btn">Previous</button><span class="lightbox-counter">1 / 4</span><button class="lightbox-btn next-btn">Next</button></div>';
+  lightbox.innerHTML = '<button class="lightbox-close" aria-label="Close">&times;</button><button class="lightbox-arrow prev" aria-label="Previous">&#8249;</button><img src="" alt="Gallery image"><button class="lightbox-arrow next" aria-label="Next">&#8250;</button>';
   document.body.appendChild(lightbox);
 
   let currentGallery = [];
@@ -19,7 +19,6 @@
 
   function updateLightbox() {
     lightbox.querySelector('img').src = currentGallery[currentIndex];
-    lightbox.querySelector('.lightbox-counter').textContent = (currentIndex + 1) + ' / ' + currentGallery.length;
   }
 
   function closeLightbox() {
@@ -35,8 +34,6 @@
     if (e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length; updateLightbox(); }
     if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % currentGallery.length; updateLightbox(); }
   });
-  lightbox.querySelector('.prev-btn').addEventListener('click', () => { currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length; updateLightbox(); });
-  lightbox.querySelector('.next-btn').addEventListener('click', () => { currentIndex = (currentIndex + 1) % currentGallery.length; updateLightbox(); });
   lightbox.querySelector('.lightbox-arrow.prev').addEventListener('click', () => { currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length; updateLightbox(); });
   lightbox.querySelector('.lightbox-arrow.next').addEventListener('click', () => { currentIndex = (currentIndex + 1) % currentGallery.length; updateLightbox(); });
 
