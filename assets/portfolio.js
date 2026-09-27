@@ -44,6 +44,20 @@
     });
   });
 
+  const resumeBtn = document.getElementById('resumeBtn');
+  const resumeMenu = document.getElementById('resumeMenu');
+  if (resumeBtn && resumeMenu) {
+    resumeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      resumeMenu.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!resumeMenu.contains(e.target) && e.target !== resumeBtn) {
+        resumeMenu.classList.remove('open');
+      }
+    });
+  }
+
   const config = window.SMARTSFLOW_CONTACT || {};
   for (const platform of ['linkedin', 'facebook', 'github', 'whatsapp']) {
     const url = config[platform];

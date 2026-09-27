@@ -91,6 +91,11 @@ html{scroll-padding-top:90px}a:focus-visible,button:focus-visible{outline:3px so
 .resume-btn{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;padding:12px 24px;border-radius:4px;font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;text-decoration:none;transition:all .2s;box-shadow:0 0 20px var(--red-glow);border:none;cursor:pointer}
 .resume-btn:hover{background:var(--red-dark);box-shadow:0 0 35px var(--red-glow);transform:translateY(-1px)}
 .resume-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
+.resume-dropdown{position:relative;display:inline-block}
+.resume-menu{display:none;position:absolute;top:calc(100% + 8px);left:0;background:var(--bg3);border:1px solid var(--border);border-radius:6px;overflow:hidden;min-width:180px;box-shadow:0 10px 30px rgba(0,0,0,.4);z-index:100}
+.resume-menu.open{display:block}
+.resume-menu a{display:block;padding:12px 18px;color:var(--white);text-decoration:none;font-size:0.85rem;font-weight:600;transition:background .2s,color .2s}
+.resume-menu a:hover{background:rgba(224,32,32,.1);color:var(--red)}
 
 /* GitHub & WhatsApp Social Cards */
 .social-profile-github .profile-card-top,.social-profile-github .profile-card-portrait{background:#e8e4dd}
