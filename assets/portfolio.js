@@ -88,6 +88,63 @@
     });
   });
 
+  const heroTitle = document.querySelector('.hero-title');
+  const typingEl = document.querySelector('.typing-text');
+  const typeText = "I\'m a Full-Stack .NET Developer.";
+  let charIndex = 0;
+  function typeWriter() {
+    if (charIndex < typeText.length) {
+      typingEl.textContent += typeText.charAt(charIndex);
+      charIndex++;
+      setTimeout(typeWriter, 80);
+    }
+  }
+  setTimeout(typeWriter, 1000);
+
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+      const title = card.querySelector('h3');
+      const desc = card.querySelector('p');
+      const tags = card.querySelectorAll('.project-tag');
+      const githubLink = card.querySelector('.project-github-link');
+      const modal = document.getElementById('projectModal');
+      const modalTitle = modal.querySelector('.modal-title');
+      const modalDesc = modal.querySelector('.modal-desc');
+      const modalTags = modal.querySelector('.modal-tags');
+      const modalGithub = modal.querySelector('.modal-github');
+      modalTitle.textContent = title.textContent;
+      modalDesc.textContent = desc.textContent;
+      modalTags.innerHTML = '';
+      tags.forEach(tag => {
+        const span = document.createElement('span');
+        span.className = 'modal-tag';
+        span.textContent = tag.textContent;
+        modalTags.appendChild(span);
+      });
+      modalGithub.href = githubLink ? githubLink.href : '#';
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  document.querySelector('.modal-close').addEventListener('click', () => {
+    document.getElementById('projectModal').classList.remove('active');
+    document.body.style.overflow = '';
+  });
+  document.getElementById('projectModal').addEventListener('click', e => {
+    if (e.target === e.currentTarget) {
+      e.currentTarget.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.getElementById('projectModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
   const config = window.SMARTSFLOW_CONTACT || {};
   for (const platform of ['linkedin', 'facebook', 'github', 'whatsapp']) {
     const url = config[platform];

@@ -145,3 +145,24 @@ html{scroll-padding-top:90px}a:focus-visible,button:focus-visible{outline:3px so
 .cert-name{font-size:1rem;font-weight:700;margin-bottom:8px}
 .cert-issuer{font-size:0.82rem;color:var(--gray);margin-bottom:4px}
 .cert-date{font-size:0.75rem;color:var(--red);font-weight:600}
+
+/* Typing Animation */
+.typing-cursor{display:inline-block;width:3px;height:1em;background:var(--red);animation:blink 1s step-end infinite;margin-left:4px;vertical-align:text-bottom}
+@keyframes blink{50%{opacity:0}}
+
+/* Project Detail Modal */
+.project-detail-modal{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:10001;display:none;align-items:center;justify-content:center;flex-direction:column;padding:5%;overflow-y:auto}
+.project-detail-modal.active{display:flex}
+.project-detail-modal .modal-content{background:var(--bg3);border:1px solid var(--border);border-radius:12px;max-width:800px;width:100%;padding:40px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.project-detail-modal .modal-close{position:absolute;top:16px;right:20px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;opacity:.7}
+.project-detail-modal .modal-close:hover{opacity:1}
+.project-detail-modal .modal-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3.5rem);color:var(--white);margin-bottom:16px}
+.project-detail-modal .modal-desc{font-size:0.95rem;color:var(--gray);line-height:1.8;margin-bottom:24px}
+.project-detail-modal .modal-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.project-detail-modal .modal-tag{font-size:0.75rem;padding:6px 14px;background:rgba(224,32,32,0.1);border:1px solid rgba(224,32,32,0.2);border-radius:12px;color:var(--red);font-weight:600}
+.project-detail-modal .modal-links{display:flex;gap:16px;flex-wrap:wrap}
+.project-detail-modal .modal-links a{padding:10px 20px;border-radius:4px;font-size:0.85rem;font-weight:600;text-decoration:none}
+.modal-github{background:var(--red);color:#fff}
+.modal-github:hover{background:var(--red-dark)}
+.modal-live{background:transparent;border:1px solid var(--red);color:var(--red)}
+.modal-live:hover{background:rgba(224,32,32,0.1)}
