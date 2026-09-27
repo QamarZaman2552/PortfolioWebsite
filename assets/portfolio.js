@@ -11,7 +11,7 @@
       link.href = parsed.href;
     });
   }
-  const email = config.email || 'muhammad.shahzaib@email.com';
+  const email = config.email || 'qamar.zaman@email.com';
   document.querySelectorAll('[data-social="gmail"]').forEach(link => {
     link.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(email);
   });
@@ -53,7 +53,7 @@
     if (!fields.every(field => field.reportValidity())) return;
     const labels = ['Name', 'Email', 'Business type', 'Service', 'Website', 'Goal'];
     const body = fields.map((field, index) => labels[index] + ': ' + field.value).join('\n\n');
-    window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent('Project enquiry — Muhammad Shahzaib') + '&body=' + encodeURIComponent(body);
+    window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent('Project enquiry — Qamar Zaman') + '&body=' + encodeURIComponent(body);
     document.getElementById('form-status').textContent = 'Your email app has been requested. Review the draft and press Send. If it does not open, use the Gmail card or email ' + email + ' directly.';
   };
 })();
