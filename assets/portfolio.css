@@ -57,7 +57,7 @@ img,video,svg,iframe{max-width:100%;height:auto}
 
 /* Projects Video Section */
 .projects-section{padding:80px 5%;background:var(--bg);border-top:1px solid var(--border)}
-.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-top:48px}
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-top:48px;align-items:start}
 .project-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:all .3s}
 .project-card:hover{border-color:rgba(224,32,32,0.3);transform:translateY(-4px)}
 .project-media{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
