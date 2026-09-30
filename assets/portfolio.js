@@ -3,7 +3,7 @@
 
   const lightbox = document.createElement('div');
   lightbox.className = 'lightbox-overlay';
-  lightbox.innerHTML = '<button class="lightbox-close" aria-label="Close">&times;</button><button class="lightbox-arrow prev" aria-label="Previous">&#8249;</button><img src="" alt="Gallery image"><button class="lightbox-arrow next" aria-label="Next">&#8250;</button>';
+  lightbox.innerHTML = '<button class="lightbox-close" aria-label="Close">&times;</button><button class="lightbox-arrow prev" aria-label="Previous">&#8249;</button><img src="" alt="Gallery image"><button class="lightbox-arrow next" aria-label="Next">&#8250;</button><div class="lightbox-counter" aria-live="polite"></div>';
   document.body.appendChild(lightbox);
 
   let currentGallery = [];
@@ -19,6 +19,10 @@
 
   function updateLightbox() {
     lightbox.querySelector('img').src = currentGallery[currentIndex];
+    lightbox.querySelector('.lightbox-counter').textContent = (currentIndex + 1) + ' / ' + currentGallery.length;
+    const multi = currentGallery.length > 1;
+    lightbox.querySelector('.lightbox-arrow.prev').style.display = multi ? '' : 'none';
+    lightbox.querySelector('.lightbox-arrow.next').style.display = multi ? '' : 'none';
   }
 
   function closeLightbox() {
@@ -40,8 +44,14 @@
   document.querySelectorAll('[data-gallery]').forEach(gallery => {
     const images = [...gallery.querySelectorAll('img')].map(img => img.src);
     gallery.querySelectorAll('img').forEach((img, i) => {
-      img.addEventListener('click', () => showLightbox(images, i));
+      img.addEventListener('click', e => { e.stopPropagation(); showLightbox(images, i); });
     });
+    if (images.length > 3) {
+      const badge = document.createElement('span');
+      badge.className = 'gallery-more';
+      badge.textContent = '+' + (images.length - 3);
+      gallery.appendChild(badge);
+    }
   });
 
   const resumeBtn = document.getElementById('resumeBtn');
@@ -125,6 +135,8 @@
 
   document.querySelectorAll('.project-card').forEach(card => {
     card.style.cursor = 'pointer';
+    const cardGithubLink = card.querySelector('.project-github-link');
+    if (cardGithubLink) cardGithubLink.addEventListener('click', e => e.stopPropagation());
     card.addEventListener('click', () => {
       const title = card.querySelector('h3');
       const desc = card.querySelector('p');
@@ -145,6 +157,11 @@
         modalTags.appendChild(span);
       });
       modalGithub.href = githubLink ? githubLink.href : '#';
+      modalGithub.style.display = githubLink ? '' : 'none';
+      const modalLive = modal.querySelector('.modal-live');
+      const liveLink = card.querySelector('.project-live-link');
+      if (liveLink) { modalLive.href = liveLink.href; modalLive.style.display = ''; }
+      else modalLive.style.display = 'none';
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
     });
@@ -162,8 +179,11 @@
   });
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
-      document.getElementById('projectModal').classList.remove('active');
-      document.body.style.overflow = '';
+      const modal = document.getElementById('projectModal');
+      if (modal.classList.contains('active')) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
     }
   });
 
