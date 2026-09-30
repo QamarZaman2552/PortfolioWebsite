@@ -100,7 +100,7 @@
 
   const heroTitle = document.querySelector('.hero-title');
   const typingEl = document.querySelector('.typing-text');
-  const typeText = "I\'m a Full-Stack .NET Developer.";
+  const typeText = "I\'m a Full-Stack .NET Developer, currently looking for new opportunities.";
   let charIndex = 0;
   function typeWriter() {
     if (charIndex < typeText.length) {
