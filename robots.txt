@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://qamarzaman2552.github.io/PortfolioWebsite/sitemap.xml

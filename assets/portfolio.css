@@ -174,3 +174,5 @@ body.lightbox-open>*:not(.lightbox-overlay){visibility:hidden}
 .modal-github:hover{background:var(--red-dark)}
 .modal-live{background:transparent;border:1px solid var(--red);color:var(--red)}
 .modal-live:hover{background:rgba(224,32,32,0.1)}
+.copy-email-btn{margin-top:8px;background:transparent;color:var(--red);border:1px solid var(--red);border-radius:3px;padding:5px 14px;font-size:.7rem;font-family:'Outfit',sans-serif;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.copy-email-btn:hover{background:var(--red);color:#fff}

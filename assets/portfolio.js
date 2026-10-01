@@ -246,3 +246,18 @@
     document.getElementById('form-status').textContent = 'Your email app has been requested. Review the draft and press Send. If it does not open, use the Gmail card or email ' + email + ' directly.';
   };
 })();
+
+window.copyEmail = function (btn) {
+  const el = document.querySelector('.contact-info-val');
+  const email = (el ? el.textContent : '').trim();
+  if (!email) return;
+  const done = () => { const t = btn.textContent; btn.textContent = 'Copied!'; setTimeout(() => { btn.textContent = t; }, 1500); };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(email).then(done).catch(() => {});
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = email; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); done(); } catch (e) {}
+    ta.remove();
+  }
+};
