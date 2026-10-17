@@ -114,7 +114,7 @@
   setTimeout(typeWriter, 1000);
 
   const eduTypingEl = document.querySelector('#education .typing-text');
-  const eduText = "Education University of Lahore, Multan Campus";
+  const eduText = "University of Education, Lahore";
   let eduCharIndex = 0;
   let eduTyped = false;
   function eduTypeWriter() {
