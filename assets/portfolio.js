@@ -78,6 +78,21 @@
     if (scrollProgress) scrollProgress.style.width = progress + '%';
   });
 
+  const spySections = ['about', 'education', 'tech-stack', 'projects', 'faqs', 'contact']
+    .map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  const spyLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
+  const updateSpy = function () {
+    var y = window.scrollY + window.innerHeight * 0.35;
+    var current = '';
+    var top = -1;
+    spySections.forEach(function (s) {
+      if (s.offsetTop <= y && s.offsetTop > top) { top = s.offsetTop; current = s.id; }
+    });
+    spyLinks.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+  };
+  window.addEventListener('scroll', updateSpy, { passive: true });
+  updateSpy();
+
   const backToTop = document.getElementById('backToTop');
   if (backToTop) {
     window.addEventListener('scroll', () => {
